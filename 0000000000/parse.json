@@ -1,7 +1,7 @@
 [{
     "login": "0000000000",
     "node_id": "0000000000",
-    "avatar_url": "images/logo.jpg"
+    "avatar_url": "./images/logo.jpg"
 },{
     "login": "0000000001",
     "node_id": "0000000001",
