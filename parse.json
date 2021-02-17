@@ -1,9 +1,11 @@
 [{
-    "login": "errfree",
-    "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ0",
-    "avatar_url": "https://avatars.githubusercontent.com/u/44?v=4",
-}{
-    "login": "errfree",
-    "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ0",
-    "avatar_url": "https://avatars.githubusercontent.com/u/41?v=4",
+    "login": "mojombo",
+    "id": 1,
+    "node_id": "MDQ6VXNlcjE=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1?v=4"
+},{
+    "login": "defunkt",
+    "id": 2,
+    "node_id": "MDQ6VXNlcjI=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/2?v=4"
 }]
