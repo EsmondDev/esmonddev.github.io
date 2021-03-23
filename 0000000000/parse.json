@@ -1,22 +1,25 @@
 [{
     "media_name": "Voice Of Ghana",
     "media_slogan": "The Voice Of The Voiceless",
+    "media_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
     "media_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_header": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_description": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_url": "https://sp0001.opengradle.pro:8050/live.mp3"
+    "media_stream": "https://sp0001.opengradle.pro:8050/live.mp3"
+    "media_program": "https://parse.json"
+    "media_channel": "0001"
 },{
     "media_name": "Voice Of Ghana",
     "media_slogan": "The Voice Of The Voiceless",
+    "media_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
     "media_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_header": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_description": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_url": "https://sp0001.opengradle.pro:8050/live.mp3"
+    "media_stream": "https://sp0001.opengradle.pro:8050/live.mp3"
+    "media_program": "https://parse.json"
+    "media_channel": "0002"
 },{
     "media_name": "Voice Of Ghana",
     "media_slogan": "The Voice Of The Voiceless",
+    "media_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
     "media_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_header": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_description": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_url": "https://sp0001.opengradle.pro:8050/live.mp3"
+    "media_stream": "https://sp0001.opengradle.pro:8050/live.mp3"
+    "media_program": "https://parse.json"
+    "media_channel": "0003"
 }]
