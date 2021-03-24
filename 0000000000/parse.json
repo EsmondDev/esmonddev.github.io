@@ -31,13 +31,13 @@
     "channel_program": "https://parse.json",
     "channel_channel": "0001"
 },{
-    "media_name": "Voice Of Ghana",
-    "media_slogan": "The Voice Of The Voiceless",
-    "media_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
-    "media_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
-    "media_stream": "https://sp0001.opengradle.pro:8050/live.mp3",
-    "media_program": "https://parse.json",
-    "media_channel": "0005"
+    "channel_name": "Voice Of Ghana",
+    "channel_slogan": "The Voice Of The Voiceless",
+    "channel_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
+    "channel_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
+    "channel_stream": "https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+    "channel_program": "https://parse.json",
+    "channel_channel": "0001"
 },{
     "channel_name": "Voice Of Ghana",
     "channel_slogan": "The Voice Of The Voiceless",
