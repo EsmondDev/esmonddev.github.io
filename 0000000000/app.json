@@ -1,9 +1,9 @@
 [{
     "app_name": "Voice Of Ghana",
     "app_slogan": "The Voice Of The Voiceless",
-    "app_logo": "",
-    "app_description": "00:00am - 02:00am"
-    "app_number": "00:00am - 02:00am"
-    "app_email": "00:00am - 02:00am"
+    "app_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
+    "app_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
+    "app_phone": "+233 204202001",
+    "app_email": "info@voiceofghana.com",
     "app_address": "N.Y. Frimpong Lane, Ayeduase"
 }]
