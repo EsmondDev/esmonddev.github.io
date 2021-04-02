@@ -14,6 +14,7 @@
         }
     }
 },{   
+    "application": {
         "channel_name": "Voice Of Ghana",
         "channel_slogan": "The Voice Of The Voiceless",
         "channel_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
@@ -27,4 +28,4 @@
             "program_time": "00:00am - 02:00am"
         }
     }
-]
+}]
