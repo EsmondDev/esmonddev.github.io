@@ -10,9 +10,11 @@
         "secondary_slogan": "The Voice Of The Voiceless",
         "secondary_time": "00.00am - 02.00am"
      },
+    "primary_secondary": {
         "secondary_name": "Voice Of Ghana",
         "secondary_slogan": "The Voice Of The Voiceless",
-        "secondary_time": "00.00am - 02.00am"
+        "secondary_time": "00.20am - 04.00am"
+    }
 },{
     "primary_name": "Voice Of Ghana",
     "primary_slogan": "The Voice Of The Voiceless",
@@ -25,7 +27,9 @@
         "secondary_slogan": "The Voice Of The Voiceless",
         "secondary_time": "00.00am - 02.00am"
      },
+    "primary_secondary": {
         "secondary_name": "Voice Of Ghana",
         "secondary_slogan": "The Voice Of The Voiceless",
-        "secondary_time": "00.00am - 02.00am"
+        "secondary_time": "02.00am - 04.00am"
+    }
 }]
