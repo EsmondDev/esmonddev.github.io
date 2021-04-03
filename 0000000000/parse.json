@@ -1,4 +1,4 @@
-{
+[
     "primary_name": "Voice Of Ghana",
     "primary_slogan": "The Voice Of The Voiceless",
     "primary_description": "Latest breaking news stories and current events from around the world and up to the minute world news.",
@@ -12,4 +12,4 @@
     "primary_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
     "primary_stream": "https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
     "primary_number": "0002",
-}
+]
