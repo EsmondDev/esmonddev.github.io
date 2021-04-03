@@ -5,7 +5,7 @@
     "primary_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
     "primary_stream": "https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
     "primary_number": "0001",
-    "primary_secondary": [{
+    "primary_secondary": {
         "secondary_name": "Voice Of Ghana",
         "secondary_slogan": "The Voice Of The Voiceless",
         "secondary_time": "00.00am - 02.00am"
@@ -13,7 +13,7 @@
         "secondary_name": "Voice Of Ghana",
         "secondary_slogan": "The Voice Of The Voiceless",
         "secondary_time": "00.00am - 02.00am"
-     }]
+     }
 },{
     "primary_name": "Voice Of Ghana",
     "primary_slogan": "The Voice Of The Voiceless",
@@ -21,7 +21,7 @@
     "primary_logo": "https://esmonddev.github.io/0000000000/images/logo.jpg",
     "primary_stream": "https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
     "primary_number": "0002",
-    "primary_secondary": [{
+    "primary_secondary": {
         "secondary_name": "Voice Of Ghana",
         "secondary_slogan": "The Voice Of The Voiceless",
         "secondary_time": "00.00am - 02.00am"
@@ -29,5 +29,5 @@
         "secondary_name": "Voice Of Ghana",
         "secondary_slogan": "The Voice Of The Voiceless",
         "secondary_time": "00.00am - 02.00am"
-     }]
+     }
 }]
