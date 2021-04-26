@@ -8,7 +8,7 @@
       "primary_number":"0001",
       "primary_secondary":[
          {
-            "secondary_name":"Secondary name",
+            "secondary_name":"TRT World",
             "secondary_slogan":"Secondary slogan",
             "secondary_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "secondary_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
@@ -16,7 +16,7 @@
             "secondary_time":"00.00am - 02.00am"
          },
          {
-            "secondary_name":"Secondary name",
+            "secondary_name":"Asaase Radio",
             "secondary_slogan":"Secondary slogan",
             "secondary_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "secondary_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
@@ -24,7 +24,7 @@
             "secondary_time":"02.00am - 04.00am"
          },
          {
-            "secondary_name":"Secondary name",
+            "secondary_name":"Kumasi Online",
             "secondary_slogan":"Secondary slogan",
             "secondary_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "secondary_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
