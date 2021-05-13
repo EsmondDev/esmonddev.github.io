@@ -216,7 +216,7 @@
       "primary_slogan":"Primary slogan",
       "primary_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
       "primary_logo":"https://esmonddev.github.io/0000000000/images/aljerzera.jpg",
-      "primary_stream":"https://sp0000.opengradle.com:1099/live.m3u8",
+      "primary_stream":"https://sp0000.opengradle.com:1099/live_360p/index.m3u8",
       "primary_number":"0003",
       "primary_secondary":[
          {
