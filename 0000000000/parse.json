@@ -3,7 +3,7 @@
       "primary_name":"TRT World",
       "primary_slogan":"Primary slogan",
       "primary_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
-      "primary_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "primary_logo":"",
       "primary_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
       "primary_number":"0001",
       "primary_secondary":[
