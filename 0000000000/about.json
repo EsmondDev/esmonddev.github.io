@@ -2,38 +2,38 @@
    {
       "about_name":"EsmondDev",
       "about_slogan":"IT Tech & Software Developer",
-      "about_image":"",
       "about_description":"Short Description",
+      "about_image":"",
       "about_item":[
          {
             "item_label":"Location",
             "item_value":"N. Y. Frimpong Lane, Ayeduase, Ghana",
-            "item_image":"",
-            "item_description":"Short Description"
+            "item_description":"Short Description",
+            "item_image":""
          },
          {  
             "item_label":"Phone",
             "item_value":"+233 204202001",
-            "item_image":"",
-            "item_description":"Short Description"
+            "item_description":"Short Description",
+            "item_image":""
          },
          {
             "item_label":"Phone",
             "item_value":"+233 204202002",
-            "item_image":"",
-            "item_description":"Short Description"
+            "item_description":"Short Description",
+            "item_image":""
          },
          {
             "item_label":"Email",
             "item_value":"dev@esmond.dev",
-            "item_image":"",
-            "item_description":"Short Description"
+            "item_description":"Short Description",
+            "item_image":""
          },
          {
             "item_label":"Website",
             "item_value":"esmond.dev",
-            "item_image":"",
-            "item_description":"Short Description"
+            "item_description":"Short Description",
+            "item_image":""
          }
       ]
    }
