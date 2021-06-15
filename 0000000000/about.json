@@ -3,31 +3,31 @@
       "about_name":"EsmondDev",
       "about_slogan":"IT Tech & Software Developer",
       "about_image":"",
-      "about_about":[
+      "about_list":[
          {
-            "about_label":"Location",
-            "about_value":"N. Y. Frimpong Lane, Ayeduase, Kumasi - Ghana",
-            "about_image":""
+            "list_label":"Location",
+            "list_value":"N. Y. Frimpong Lane, Ayeduase, Kumasi - Ghana",
+            "list_image":""
          },
          {  
-            "about_label":"Phone",
-            "about_value":"+233 204202001",
-            "about_image":""
+            "list_label":"Phone",
+            "list_value":"+233 204202001",
+            "list_image":""
          },
          {
-            "about_label":"Phone",
-            "about_value":"+233 204202002",
-            "about_image":""
+            "list_label":"Phone",
+            "list_value":"+233 204202002",
+            "list_image":""
          },
          {
-            "about_label":"Email",
-            "about_value":"esmonddev@gmail.com",
-            "about_image":""
+            "list_label":"Email",
+            "list_value":"esmonddev@gmail.com",
+            "list_image":""
          },
          {
-            "about_label":"Website",
-            "about_value":"esmond.dev",
-            "about_image":""
+            "list_label":"Website",
+            "list_value":"esmond.dev",
+            "list_image":""
          }
       ]
    }
