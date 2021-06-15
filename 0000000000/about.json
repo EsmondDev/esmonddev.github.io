@@ -6,31 +6,31 @@
       "about_image":"",
       "about_item":[
          {
-            "item_label":"Location",
+            "item_label":"Phisical Address",
             "item_value":"N. Y. Frimpong Lane, Ayeduase, Ghana",
             "item_description":"",
             "item_image":""
          },
          {  
-            "item_label":"Phone",
+            "item_label":"Phone Number",
             "item_value":"+233 204202001",
             "item_description":"Short Description",
             "item_image":""
          },
          {
-            "item_label":"Phone",
+            "item_label":"Phone Number",
             "item_value":"+233 204202002",
             "item_description":"Short Description",
             "item_image":""
          },
          {
-            "item_label":"Email",
+            "item_label":"Email Address",
             "item_value":"dev@esmond.dev",
             "item_description":"Short Description",
             "item_image":""
          },
          {
-            "item_label":"Website",
+            "item_label":"Website Address",
             "item_value":"esmond.dev",
             "item_description":"Short Description",
             "item_image":""
