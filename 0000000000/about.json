@@ -8,31 +8,31 @@
          {
             "item_label":"Phisical Address",
             "item_value":"N. Y. Frimpong Lane.",
-            "item_description":"Ayeduase, Ghana",
+            "item_description":"Ayeduase, Ghana.",
             "item_image":""
          },
          {  
             "item_label":"Mobile Number",
-            "item_value":"+233 204202001",
-            "item_description":"Call my mobile line",
+            "item_value":"+233 204202001.",
+            "item_description":"Call my mobile line.",
             "item_image":""
          },
          {
             "item_label":"Office Number",
-            "item_value":"+233 204202002",
-            "item_description":"Call my office line",
+            "item_value":"+233 204202002.",
+            "item_description":"Call my office line.",
             "item_image":""
          },
          {
             "item_label":"Email Address",
             "item_value":"dev@esmond.dev",
-            "item_description":"Send me an email",
+            "item_description":"Send me an email.",
             "item_image":""
          },
          {
             "item_label":"Website Address",
             "item_value":"https://esmond.dev",
-            "item_description":"Visit my website",
+            "item_description":"Visit my website.",
             "item_image":""
          }
       ]
