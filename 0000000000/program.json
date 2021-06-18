@@ -1,26 +1,6 @@
 {
   "schedule": [
     {
-      "day": "Monday",
-      "events": [
-       
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Nrithanjaly",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Kadukumani",
-          "duration": "30 min",
-          "show_description": ""
-        }
-      ]
-    },
-    {
       "day": "Tuesday",
       "events": [
         
@@ -133,6 +113,25 @@
           "show_time_start": "6:30 AM",
           "show_time_end": "7:00 AM",
           "show_title": "Angels Time",
+          "duration": "30 min",
+          "show_description": ""
+        }
+      ]
+    },{
+      "day": "Monday",
+      "events": [
+       
+        {
+          "show_time_start": "6:00 AM",
+          "show_time_end": "6:30 AM",
+          "show_title": "Nrithanjaly",
+          "duration": "30 min",
+          "show_description": ""
+        },
+        {
+          "show_time_start": "6:30 AM",
+          "show_time_end": "7:00 AM",
+          "show_title": "Kadukumani",
           "duration": "30 min",
           "show_description": ""
         }
