@@ -1,26 +1,6 @@
 {
   "schedule": [
     {
-      "day": "Sunday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Little Birds",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Angels Time",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
-      ]
-    },{
       "day": "Monday",
       "events": [
        
@@ -146,6 +126,26 @@
           "show_time_start": "6:30 AM",
           "show_time_end": "7:00 AM",
           "show_title": "Thalirukal",
+          "show_image": "",
+          "duration": "30 min",
+          "show_description": ""
+        }
+      ]
+    },{
+      "day": "Sunday",
+      "events": [
+        {
+          "show_time_start": "6:00 AM",
+          "show_time_end": "6:30 AM",
+          "show_title": "Little Birds",
+          "show_image": "",
+          "duration": "30 min",
+          "show_description": ""
+        },
+        {
+          "show_time_start": "6:30 AM",
+          "show_time_end": "7:00 AM",
+          "show_title": "Angels Time",
           "show_image": "",
           "duration": "30 min",
           "show_description": ""
