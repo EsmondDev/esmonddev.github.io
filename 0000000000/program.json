@@ -93,16 +93,16 @@
       "events": [
        
         {
-          "show_time_start": "08:00 pm",
-          "show_time_end": "09:00 pm",
+          "show_time_start": "10:00 pm",
+          "show_time_end": "11:00 pm",
           "show_title": "Kadukumani",
           "show_image": "",
           "duration": "30 min",
           "show_description": ""
         },
         {
-          "show_time_start": "09:00 pm",
-          "show_time_end": "10:00 pm",
+          "show_time_start": "11:00 pm",
+          "show_time_end": "12:00 pm",
           "show_title": "Pallikoodam Pattukal",
           "show_image": "",
           "duration": "30 min",
