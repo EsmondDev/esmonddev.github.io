@@ -1,9 +1,7 @@
-{
-  "schedule": [
-    {
+[
+   {
       "day": "Monday",
       "events": [
-       
         {
           "show_time_start": "6:00 AM",
           "show_time_end": "6:30 AM",
@@ -25,7 +23,6 @@
     {
       "day": "Tuesday",
       "events": [
-        
         {
           "show_time_start": "6:00 AM",
           "show_time_end": "6:30 AM",
@@ -47,7 +44,6 @@
     {
       "day": "Wednesday",
       "events": [
-        
         {
           "show_time_start": "6:00 AM",
           "show_time_end": "6:30 AM",
@@ -69,7 +65,6 @@
     {
       "day": "Thursday",
       "events": [
-        
         {
           "show_time_start": "6:00 AM",
           "show_time_end": "6:30 AM",
@@ -91,7 +86,6 @@
     {
       "day": "Friday",
       "events": [
-       
         {
           "show_time_start": "10:00 pm",
           "show_time_end": "11:00 pm",
@@ -113,7 +107,6 @@
     {
       "day": "Saturday",
       "events": [
-        
         {
           "show_time_start": "6:00 AM",
           "show_time_end": "6:30 AM",
@@ -131,7 +124,8 @@
           "show_description": ""
         }
       ]
-    },{
+    },
+    {
       "day": "Sunday",
       "events": [
         {
@@ -151,6 +145,5 @@
           "show_description": ""
         }
       ]
-    }
-  ]
-}
+   }
+]
