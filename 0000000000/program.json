@@ -1,149 +1,406 @@
 [
    {
-      "day": "Monday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Nrithanjaly",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Kadukumani",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
+      "main_day":"Monday",
+      "main_item":[
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 am",
+            "item_end":"02:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 am",
+            "item_end":"04:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 am",
+            "item_end":"06:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 am",
+            "item_end":"08:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 am",
+            "item_end":"10:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 am",
+            "item_end":"12:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 pm",
+            "item_end":"02:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 pm",
+            "item_end":"04:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 pm",
+            "item_end":"06:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 pm",
+            "item_end":"08:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 pm",
+            "item_end":"10:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 pm",
+            "item_end":"12:00 am"
+         }
       ]
-    },
-    {
-      "day": "Tuesday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Adventure in Odisy",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Minnam Minungukal",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
+   },
+   {
+      "main_day":"Tuesday",
+      "main_item":[
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 am",
+            "item_end":"02:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 am",
+            "item_end":"04:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 am",
+            "item_end":"06:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 am",
+            "item_end":"08:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 am",
+            "item_end":"10:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 am",
+            "item_end":"12:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 pm",
+            "item_end":"02:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 pm",
+            "item_end":"04:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 pm",
+            "item_end":"06:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 pm",
+            "item_end":"08:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 pm",
+            "item_end":"10:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 pm",
+            "item_end":"12:00 am"
+         }
       ]
-    },
-    {
-      "day": "Wednesday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Pavachangathi",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Angeles Time",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
+   },
+   {
+      "main_day":"Wednesday",
+      "main_item":[
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 am",
+            "item_end":"02:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 am",
+            "item_end":"04:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 am",
+            "item_end":"06:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 am",
+            "item_end":"08:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 am",
+            "item_end":"10:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 am",
+            "item_end":"12:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 pm",
+            "item_end":"02:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 pm",
+            "item_end":"04:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 pm",
+            "item_end":"06:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 pm",
+            "item_end":"08:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 pm",
+            "item_end":"10:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 pm",
+            "item_end":"12:00 am"
+         }
       ]
-    },
-    {
-      "day": "Thursday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Little Birds",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Angels Time",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
-      ]
-    },
-    {
-      "day": "Friday",
-      "events": [
-        {
-          "show_time_start": "10:00 pm",
-          "show_time_end": "11:00 pm",
-          "show_title": "Kadukumani",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "11:00 pm",
-          "show_time_end": "12:00 pm",
-          "show_title": "Pallikoodam Pattukal",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
-      ]
-    },
-    {
-      "day": "Saturday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Minnam Minungu",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Thalirukal",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
-      ]
-    },
-    {
-      "day": "Sunday",
-      "events": [
-        {
-          "show_time_start": "6:00 AM",
-          "show_time_end": "6:30 AM",
-          "show_title": "Little Birds",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        },
-        {
-          "show_time_start": "6:30 AM",
-          "show_time_end": "7:00 AM",
-          "show_title": "Angels Time",
-          "show_image": "",
-          "duration": "30 min",
-          "show_description": ""
-        }
+   },
+   {
+      "main_day":"Thursday",
+      "main_item":[
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 am",
+            "item_end":"02:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 am",
+            "item_end":"04:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 am",
+            "item_end":"06:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 am",
+            "item_end":"08:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 am",
+            "item_end":"10:00 am"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 am",
+            "item_end":"12:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"12:00 pm",
+            "item_end":"02:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"02:00 pm",
+            "item_end":"04:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"04:00 pm",
+            "item_end":"06:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"06:00 pm",
+            "item_end":"08:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"08:00 pm",
+            "item_end":"10:00 pm"
+         },
+         {
+            "item_name":"item name",
+            "item_slogan":"item slogan",
+            "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
+            "item_duration":"2 Hour",
+            "item_start":"10:00 pm",
+            "item_end":"12:00 am"
+         }
       ]
    }
 ]
