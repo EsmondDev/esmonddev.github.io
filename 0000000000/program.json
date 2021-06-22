@@ -3,7 +3,7 @@
       "main_day":"Monday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Monday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
@@ -116,7 +116,7 @@
       "main_day":"Tuesday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Tuesday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
@@ -229,7 +229,7 @@
       "main_day":"Wednesday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Wednesday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
@@ -342,7 +342,7 @@
       "main_day":"Thursday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Thursday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
@@ -455,7 +455,7 @@
       "main_day":"Friday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Friday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
@@ -568,7 +568,7 @@
       "main_day":"Saturday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Saturday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
@@ -681,7 +681,7 @@
       "main_day":"Sunday",
       "main_item":[
          {
-            "item_name":"item name",
+            "item_name":"Sunday",
             "item_slogan":"item slogan",
             "item_description":"Latest breaking news stories and current events from around the world and up to the minute world news.",
             "item_image":"",
