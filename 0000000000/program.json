@@ -1,7 +1,7 @@
 [
    {
-      "main_day":"Monday",
-      "main_item":[
+      "events_day":"Monday",
+      "events_item":[
          {
             "item_name":"Morning Show",
             "item_slogan":"Presented by DJ Blade",
@@ -101,8 +101,8 @@
       ]
    },
    {
-      "main_day":"Tuesday",
-      "main_item":[
+      "events_day":"Tuesday",
+      "events_item":[
          {
             "item_name":"Tuesday",
             "item_slogan":"item slogan",
@@ -202,8 +202,8 @@
       ]
    },
    {
-      "main_day":"Wednesday",
-      "main_item":[
+      "events_day":"Wednesday",
+      "events_item":[
          {
             "item_name":"Wednesday",
             "item_slogan":"item slogan",
@@ -303,8 +303,8 @@
       ]
    },
    {
-      "main_day":"Thursday",
-      "main_item":[
+      "events_day":"Thursday",
+      "events_item":[
          {
             "item_name":"Thursday",
             "item_slogan":"item slogan",
@@ -404,8 +404,8 @@
       ]
    },
    {
-      "main_day":"Friday",
-      "main_item":[
+      "events_day":"Friday",
+      "events_item":[
          {
             "item_name":"Friday",
             "item_slogan":"item slogan",
@@ -505,8 +505,8 @@
       ]
    },
    {
-      "main_day":"Saturday",
-      "main_item":[
+      "events_day":"Saturday",
+      "events_item":[
          {
             "item_name":"Saturday",
             "item_slogan":"item slogan",
@@ -606,8 +606,8 @@
       ]
    },
    {
-      "main_day":"Sunday",
-      "main_item":[
+      "events_day":"Sunday",
+      "events_item":[
          {
             "item_name":"Sunday",
             "item_slogan":"item slogan",
