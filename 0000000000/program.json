@@ -1,8 +1,13 @@
 [
    {
-      "events_day":"Monday",
-      "events_number":"0000",
-      "events_item":[
+      
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0000",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Morning Show",
             "item_slogan":"Presented by DJ Blade",
@@ -102,9 +107,13 @@
       ]
    },
    {
-      "events_day":"Tuesday",
-      "events_number":"0001",
-      "events_item":[
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0001",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Tuesday",
             "item_slogan":"item slogan",
@@ -204,9 +213,13 @@
       ]
    },
    {
-      "events_day":"Wednesday",
-      "events_number":"0002",
-      "events_item":[
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0002",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Wednesday",
             "item_slogan":"item slogan",
@@ -306,9 +319,13 @@
       ]
    },
    {
-      "events_day":"Thursday",
-      "events_number":"0003",
-      "events_item":[
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0003",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Thursday",
             "item_slogan":"item slogan",
@@ -408,9 +425,13 @@
       ]
    },
    {
-      "events_day":"Friday",
-      "events_number":"0004",
-      "events_item":[
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0004",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Friday",
             "item_slogan":"item slogan",
@@ -510,9 +531,13 @@
       ]
    },
    {
-      "events_day":"Saturday",
-      "events_number":"0005",
-      "events_item":[
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0005",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Saturday",
             "item_slogan":"item slogan",
@@ -612,9 +637,13 @@
       ]
    },
    {
-      "events_day":"Sunday",
-      "events_number":"0006",
-      "events_item":[
+      "main_name":"name",
+      "main_slogan":"slogan",
+      "main_number":"0006",
+      "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
+      "main_day":"monday",
+      "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
+      "main_item":[
          {
             "item_name":"Sunday",
             "item_slogan":"item slogan",
