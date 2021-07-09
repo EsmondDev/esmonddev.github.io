@@ -5,7 +5,7 @@
       "main_slogan":"slogan",
       "main_number":"0000",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Monday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
@@ -111,7 +111,7 @@
       "main_slogan":"slogan",
       "main_number":"0001",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Tuesday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
@@ -217,7 +217,7 @@
       "main_slogan":"slogan",
       "main_number":"0002",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Wednesday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
@@ -323,7 +323,7 @@
       "main_slogan":"slogan",
       "main_number":"0003",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Thursday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
@@ -429,7 +429,7 @@
       "main_slogan":"slogan",
       "main_number":"0004",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Friday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
@@ -535,7 +535,7 @@
       "main_slogan":"slogan",
       "main_number":"0005",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Saturday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
@@ -641,7 +641,7 @@
       "main_slogan":"slogan",
       "main_number":"0006",
       "main_stream":"https://tv-trtworld.live.trt.com.tr/master_360.m3u8",
-      "main_day":"monday",
+      "main_day":"Sunday",
       "main_logo":"https://esmonddev.github.io/0000000000/images/cnn.png",
       "main_item":[
          {
