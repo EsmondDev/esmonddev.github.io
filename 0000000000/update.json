@@ -1,5 +1,5 @@
 {
     "versionCode": 2,
-    "cancellable": false,
+    "cancellable": true,
     "url": "https://github.com/p32929/AndroidAppUpdater"
 }
