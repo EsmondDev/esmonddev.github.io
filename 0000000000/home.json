@@ -20,8 +20,8 @@
           "item_name": "Gradle Finder",
           "item_slogan": "GH Information Finder",
           "item_description": "Download Now",
-          "item_logo": "",
-          "item_banner": ""
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Gradle Radio",
