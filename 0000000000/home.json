@@ -13,71 +13,71 @@
           "item_name": "Gradle Suite",
           "item_slogan": "GH Business Suite",
           "item_description": "Download Now",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Gradle Finder",
           "item_slogan": "GH Information Finder",
           "item_description": "Download Now",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "",
+          "item_banner": ""
         },
         {
           "item_name": "Gradle Radio",
           "item_slogan": "GH Radio Stations",
           "item_description": "Download Now",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Gradle TV",
           "item_slogan": "GH Television Stations",
           "item_description": "Download Now",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Gradle Weather",
           "item_slogan": "GH Weather Forecast",
           "item_description": "Download Now",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Business location",
           "item_slogan": "N.Y. Frimpong Lane.",
           "item_description": "Ayeduase, Ghana.",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Business phone 1",
           "item_slogan": "+233 204202001",
           "item_description": "Call our mobile",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Business phone 2",
           "item_slogan": "+233 204202002",
           "item_description": "Call our office",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Business email",
           "item_slogan": "dev@esmond.dev",
           "item_description": "Send us an email",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
           "item_name": "Business website",
           "item_slogan": "https://esmond.dev",
           "item_description": "Visit our website",
-          "item_logo": "file:///android_asset/home_db/0000_logo.png",
-          "item_banner": "file:///android_asset/home_db/0000_banner.png"
+          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         }
       ]
     },
