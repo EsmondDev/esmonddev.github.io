@@ -129,7 +129,7 @@
           "item_value": "N.Y. Frimpong Lane.",
           "item_details": "Ayeduase, Ghana.",
           "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
           "item_label": "Suite phone 1",
@@ -150,7 +150,7 @@
           "item_value": "dev@esmond.dev",
           "item_details": "Send us an email",
           "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
           "item_label": "Suite website",
@@ -158,6 +158,86 @@
           "item_details": "Visit our website",
           "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
           "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
+        }
+      ]
+    },{
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000000",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png",
+      "main_code": "000002",
+      "main_group": "Group",
+      "main_item": [
+        {
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite location",
+          "item_value": "N.Y. Frimpong Lane.",
+          "item_details": "Ayeduase, Ghana.",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite phone 1",
+          "item_value": "+233 204202001",
+          "item_details": "Call our mobile",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite phone 2",
+          "item_value": "+233 204202002",
+          "item_details": "Call our office",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite email",
+          "item_value": "dev@esmond.dev",
+          "item_details": "Send us an email",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
+        },
+        {
+          "item_label": "Suite website",
+          "item_value": "https://esmond.dev",
+          "item_details": "Visit our website",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png"
         }
       ]
     }
