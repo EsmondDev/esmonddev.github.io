@@ -1,326 +1,163 @@
 {
   "home_db": [
     {
-      "main_name": "App Gradle Inc",
-      "main_slogan": "Information Technology,",
-      "main_description": "Suite Code 000000",
-      "main_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-      "main_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png",
-      "main_number": "0000",
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000000",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png",
+      "main_code": "000000",
       "main_group": "Group",
       "main_item": [
         {
-          "item_name": "Gradle Suite",
-          "item_slogan": "GH Business Suite",
-          "item_description": "Download Now",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Gradle Finder",
-          "item_slogan": "GH Information Finder",
-          "item_description": "Download Now",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Gradle Radio",
-          "item_slogan": "GH Radio Stations",
-          "item_description": "Download Now",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Gradle TV",
-          "item_slogan": "GH Television Stations",
-          "item_description": "Download Now",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Gradle Weather",
-          "item_slogan": "GH Weather Forecast",
-          "item_description": "Download Now",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Business location",
-          "item_slogan": "N.Y. Frimpong Lane.",
-          "item_description": "Ayeduase, Ghana.",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite location",
+          "item_value": "N.Y. Frimpong Lane.",
+          "item_details": "Ayeduase, Ghana.",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Business phone 1",
-          "item_slogan": "+233 204202001",
-          "item_description": "Call our mobile",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite phone 1",
+          "item_value": "+233 204202001",
+          "item_details": "Call our mobile",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Business phone 2",
-          "item_slogan": "+233 204202002",
-          "item_description": "Call our office",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite phone 2",
+          "item_value": "+233 204202002",
+          "item_details": "Call our office",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Business email",
-          "item_slogan": "dev@esmond.dev",
-          "item_description": "Send us an email",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite email",
+          "item_value": "dev@esmond.dev",
+          "item_details": "Send us an email",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         },
         {
-          "item_name": "Business website",
-          "item_slogan": "https://esmond.dev",
-          "item_description": "Visit our website",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
+          "item_label": "Suite website",
+          "item_value": "https://esmond.dev",
+          "item_details": "Visit our website",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png"
         }
       ]
-    },
-    {
-      "main_name": "Ecobank Ghana",
-      "main_slogan": "Boards schedule for monday",
-      "main_description": "The Nation's Mouthpiece",
-      "main_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-      "main_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png",
-      "main_number": "0001",
+    },{
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000000",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png",
+      "main_code": "000001",
       "main_group": "Group",
       "main_item": [
         {
-          "item_name": "Product 1",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Product 2",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Product 3",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Suite",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Product 4",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Product 5",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite Services",
+          "item_value": "GH Business Services",
+          "item_details": "Download Now",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Location",
-          "item_slogan": "N.Y. Frimpong Lane.",
-          "item_description": "Ayeduase, Ghana.",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite location",
+          "item_value": "N.Y. Frimpong Lane.",
+          "item_details": "Ayeduase, Ghana.",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
-          "item_name": "Phone number 1",
-          "item_slogan": "+233 204202001",
-          "item_description": "Call our mobile",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite phone 1",
+          "item_value": "+233 204202001",
+          "item_details": "Call our mobile",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Phone number 2",
-          "item_slogan": "+233 204202002",
-          "item_description": "Call our office",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite phone 2",
+          "item_value": "+233 204202002",
+          "item_details": "Call our office",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         },
         {
-          "item_name": "Email Address",
-          "item_slogan": "dev@esmond.dev",
-          "item_description": "Send us an email",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
+          "item_label": "Suite email",
+          "item_value": "dev@esmond.dev",
+          "item_details": "Send us an email",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png"
         },
         {
-          "item_name": "Website",
-          "item_slogan": "https://esmond.dev",
-          "item_description": "Visit our website",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png"
-        }
-      ]
-    },
-    {
-      "main_name": "MTN Ghana",
-      "main_slogan": "Boards schedule for monday",
-      "main_description": "The Nation's Mouthpiece",
-      "main_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-      "main_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png",
-      "main_number": "0002",
-      "main_group": "Group",
-      "main_item": [
-        {
-          "item_name": "Product 1",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Product 2",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Product 3",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Product 4",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Product 5",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Location",
-          "item_slogan": "N.Y. Frimpong Lane.",
-          "item_description": "Ayeduase, Ghana.",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Phone number 1",
-          "item_slogan": "+233 204202001",
-          "item_description": "Call our mobile",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Phone number 2",
-          "item_slogan": "+233 204202002",
-          "item_description": "Call our office",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Email Address",
-          "item_slogan": "dev@esmond.dev",
-          "item_description": "Send us an email",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        },
-        {
-          "item_name": "Website",
-          "item_slogan": "https://esmond.dev",
-          "item_description": "Visit our website",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png"
-        }
-      ]
-    },
-    {
-      "main_name": "Vodafone Ghana",
-      "main_slogan": "Boards schedule for monday",
-      "main_description": "The Nation's Mouthpiece",
-      "main_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-      "main_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png",
-      "main_number": "0003",
-      "main_group": "Group",
-      "main_item": [
-        {
-          "item_name": "Product 1",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Product 2",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Product 3",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Product 4",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Product 5",
-          "item_slogan": "Host: Presenter name",
-          "item_description": "The Nation's Mouthpiece",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Location",
-          "item_slogan": "N.Y. Frimpong Lane.",
-          "item_description": "Ayeduase, Ghana.",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Phone number 1",
-          "item_slogan": "+233 204202001",
-          "item_description": "Call our mobile",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Phone number 2",
-          "item_slogan": "+233 204202002",
-          "item_description": "Call our office",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Email Address",
-          "item_slogan": "dev@esmond.dev",
-          "item_description": "Send us an email",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
-        },
-        {
-          "item_name": "Website",
-          "item_slogan": "https://esmond.dev",
-          "item_description": "Visit our website",
-          "item_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
-          "item_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png"
+          "item_label": "Suite website",
+          "item_value": "https://esmond.dev",
+          "item_details": "Visit our website",
+          "item_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+          "item_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png"
         }
       ]
     }
