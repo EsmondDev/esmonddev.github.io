@@ -1,0 +1,40 @@
+{
+  "suite_db": [
+    {
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000000",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000000_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000000_banner.png",
+      "main_code": "000000",
+      "main_group": "Group"
+    },
+    {
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000001",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000001_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000001_banner.png",
+      "main_code": "000001",
+      "main_group": "Group"
+    },
+    {
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000002",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000002_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000002_banner.png",
+      "main_code": "000002",
+      "main_group": "Group"
+    },
+    {
+      "main_label": "App Gradle Inc",
+      "main_value": "Information Technology,",
+      "main_details": "Suite Code 000003",
+      "main_logo": "https://esmonddev.github.io/0000000000/images/000003_logo.png",
+      "main_banner": "https://esmonddev.github.io/0000000000/images/000003_banner.png",
+      "main_code": "000003",
+      "main_group": "Group"
+    }
+  ]
+}
