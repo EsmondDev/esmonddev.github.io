@@ -7,6 +7,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0000_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0000_banner.png",
       "main_json": "https://esmonddev.github.io/000000/000000.json",
+      "main_voice": "gradle",
       "main_code": "0000",
       "main_group": "Group",
       "main_item": [
@@ -88,6 +89,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0001_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0001_banner.png",
       "main_json": "https://esmonddev.github.io/000001/000001.json",
+      "main_voice": "voice",
       "main_code": "0001",
       "main_group": "Group",
       "main_item": [
@@ -169,6 +171,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0002_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0002_banner.png",
       "main_json": "https://esmonddev.github.io/000002/000002.json",
+      "main_voice": "mtn",
       "main_code": "0002",
       "main_group": "Group",
       "main_item": [
@@ -250,6 +253,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0003_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0003_banner.png",
       "main_json": "https://esmonddev.github.io/000003/000003.json",
+      "main_voice": "vodafone",
       "main_code": "0003",
       "main_group": "Group",
       "main_item": [
@@ -331,6 +335,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0004_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0004_banner.png",
       "main_json": "https://esmonddev.github.io/000004/000004.json",
+      "main_voice": "gcb",
       "main_code": "0004",
       "main_group": "Group",
       "main_item": [
@@ -412,6 +417,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0005_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0005_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "absa",
       "main_code": "0005",
       "main_group": "Group",
       "main_item": [
@@ -493,6 +499,7 @@
       "main_logo": "https://esmonddev.github.io/0000000000/images/0006_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0006_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "ecobank",
       "main_code": "0006",
       "main_group": "Group",
       "main_item": [
@@ -568,12 +575,13 @@
         }
       ]
     },{
-      "main_label": "App Gradle Inc",
+      "main_label": "Standard Chartered",
       "main_value": "Information Technology,",
       "main_details": "Suite Code 000000",
       "main_logo": "https://esmonddev.github.io/0000000000/images/0007_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0007_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "standard chartered",
       "main_code": "0007",
       "main_group": "Group",
       "main_item": [
@@ -649,12 +657,13 @@
         }
       ]
     },{
-      "main_label": "App Gradle Inc",
+      "main_label": "Stanbic Bank Ghana",
       "main_value": "Information Technology,",
       "main_details": "Suite Code 000000",
       "main_logo": "https://esmonddev.github.io/0000000000/images/0008_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0008_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "Stanbic",
       "main_code": "0008",
       "main_group": "Group",
       "main_item": [
@@ -730,12 +739,13 @@
         }
       ]
     },{
-      "main_label": "App Gradle Inc",
+      "main_label": "Zenith Bank",
       "main_value": "Information Technology,",
       "main_details": "Suite Code 000000",
       "main_logo": "https://esmonddev.github.io/0000000000/images/0009_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0009_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "zenith",
       "main_code": "0009",
       "main_group": "Group",
       "main_item": [
@@ -811,12 +821,13 @@
         }
       ]
     },{
-      "main_label": "App Gradle Inc",
+      "main_label": "Universal Merchant Bank",
       "main_value": "Information Technology,",
       "main_details": "Suite Code 000000",
       "main_logo": "https://esmonddev.github.io/0000000000/images/0010_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0010_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "umb",
       "main_code": "0010",
       "main_group": "Group",
       "main_item": [
@@ -892,12 +903,13 @@
         }
       ]
     },{
-      "main_label": "App Gradle Inc",
+      "main_label": "National Investment Bank",
       "main_value": "Information Technology,",
       "main_details": "Suite Code 000000",
       "main_logo": "https://esmonddev.github.io/0000000000/images/0011_logo.png",
       "main_banner": "https://esmonddev.github.io/0000000000/images/0011_banner.png",
       "main_json": "https://esmonddev.github.io/000005/000005.json",
+      "main_voice": "nib",
       "main_code": "0011",
       "main_group": "Group",
       "main_item": [
