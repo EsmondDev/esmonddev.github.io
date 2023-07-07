@@ -1,8 +1,8 @@
 {
+    "appCode": 1010101010,
     "versionCode":2,
     "versionName":"1.0",
     "contentText":"DIALOG_CONTENT_TEXT",
     "minSupport":21,
-    "url":"https://esmonddev.github.io/app-debug.apk",
-    "appCode":0101010101
+    "url":"https://esmonddev.github.io/app-debug.apk"
 }
