@@ -1,0 +1,7 @@
+{
+    "versionCode":1.0,                    //int
+    "versionName":"2",                  //string
+    "contentText":"DIALOG_CONTENT_TEXT",           //string
+    "minSupport":21,   //int
+    "url":"https://esmonddev.github.io/app-debug.apk"                       //string
+}
