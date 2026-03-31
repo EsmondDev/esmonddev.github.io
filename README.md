@@ -1,1 +1,1 @@
-DevOps - Theme application.
+DevOps - Theme Application.
