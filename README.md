@@ -1,1 +1,1 @@
-DevOps - User Interface theme.
+DevOps - Theme application.
