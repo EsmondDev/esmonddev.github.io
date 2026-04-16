@@ -2,7 +2,7 @@ DevOps - Theme Application.
 ```java
 public static class w3Code {
         // Java using w3Code
-        public static List<AlertDialog.Builder> a0001;
+        public static List<AlertDialog.Builder> a0001, b0001, c0001;
 }
 ```
 ```java
