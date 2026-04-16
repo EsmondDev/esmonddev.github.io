@@ -1,12 +1,12 @@
 DevOps - Theme Application.
 ```java
-// w3Code
+// w3Code.
 public static class w3Code {
         public static List<AlertDialog.Builder> a0001, b0001, c0001;
 }
 ```
 ```java
-// Java using w3Code
+// Java using w3Code.
 public AlertDialog.Builder getBuilder() {
         w3Code.a0001 = Collections.singletonList(new AlertDialog.Builder(AppCode.this));
         w3Code.a0001.get(0).setCancelable(true);
