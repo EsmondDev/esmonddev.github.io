@@ -1,5 +1,11 @@
 DevOps - Theme Application.
 ```java
+public static class w3Code {
+        // Java using w3Code
+        public static List<AlertDialog.Builder> a0001;
+}
+```
+```java
 public AlertDialog.Builder getBuilder() {
         w3Code.a0001 = Collections.singletonList(new AlertDialog.Builder(AppCode.this));
         w3Code.a0001.get(0).setCancelable(true);
@@ -14,4 +20,4 @@ public AlertDialog.Builder getBuilder() {
         }, 1000));
         w3Code.a0001.get(0).setNegativeButton("No", (dialog, id) -> dialog.dismiss());
         return w3Code.a0001.get(0);
-    }
+}
