@@ -3,132 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Stream Player</title>
+    <title>DASH Stream Player</title>
+    <!-- Include dash.js library -->
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #111;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .player-container {
-            position: relative;
-            width: 100%;
-            max-width: 854px;
-            aspect-ratio: 16 / 9;
-            background-color: #000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-radius: 8px;
-            overflow: hidden;
+        .video-container {
+            max-width: 800px;
+            margin: 20px auto;
         }
         video {
             width: 100%;
-            height: 100%;
-            display: block;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            border-top-color: #e50914;
-            animation: spin 1s ease-in-out infinite;
-        }
-        .overlay h2 {
-            margin: 20px 0 5px 0;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-        .overlay p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="player-container">
-        <div id="statusOverlay" class="overlay">
-            <div class="spinner"></div>
-            <h2>Stream Disconnected</h2>
-            <p id="statusMessage">Attempting to reconnect...</p>
-        </div>
-        <video id="videoPlayer" controls autoplay muted playsinline></video>
-    </div>
-    <script src="https://dashjs.org"></script>
-    <script>
-        const videoElement = document.querySelector("#videoPlayer");
-        const overlayElement = document.querySelector("#statusOverlay");
-        const statusMessage = document.querySelector("#statusMessage");
-        const streamUrl = "https://a00.w3gradle.com/a03/live.mpd"; 
-        const player = dashjs.MediaPlayer().create();
-        player.updateSettings({
-            streaming: {
-                retryAttempts: {
-                    mpd: 999,
-                    playlist: 999,
-                    media: 999
-                },
-                retryIntervals: {
-                    mpd: 2000,
-                    playlist: 2000,
-                    media: 2000
-                },
-                gaps: {
-                    jumpGaps: true
-                }
-            }
-        });
-        player.initialize(videoElement, streamUrl, true);
-        player.on(dashjs.MediaPlayer.events.ERROR, function (e) {
-            console.error("DASH Player Error occurred:", e.error);
-            if (e.error === 'download' || e.error === 'manifestError') {
-                showOverlay("Connection lost. Retrying in 5 seconds...");
-                setTimeout(() => {
-                    statusMessage.textContent = "Re-initializing stream engine...";
-                    player.reset(); 
-                    player.initialize(videoElement, streamUrl, true);
-                }, 5000);
-            }
-        });
-        player.on(dashjs.MediaPlayer.events.PLAYBACK_PLAYING, function () {
-            hideOverlay();
-        });
-        function showOverlay(message) {
-            statusMessage.textContent = message;
-            overlayElement.classList.add("active");
-        }
-        function hideOverlay() {
-            overlayElement.classList.remove("active");
-        }
-    </script>
+
+<div class="video-container">
+    <video id="videoPlayer" controls autoplay muted></video>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var url = "https://a00.w3gradle.com/a03/live.mpd";
+        var videoElement = document.querySelector("#videoPlayer");
+        
+        // Initialize dash player
+        var player = dashjs.MediaPlayer().create();
+        player.initialize(videoElement, url, true);
+    });
+</script>
+
 </body>
 </html>
