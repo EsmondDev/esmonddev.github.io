@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASH Stream Player with DOM Hard Reset</title>
+    <title>DASH Stream Player with Auto-Recovery</title>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
         body {
@@ -97,6 +97,8 @@
         var player = null;
         var isReconnecting = false;
         var reconnectTimer = null;
+        var stallCheckTimer = null;
+        var recoveryAttempts = 0;
 
         function showStatus(text) {
             statusOverlay.innerText = text;
@@ -122,13 +124,21 @@
             unmuteBtn.style.display = "none";
         });
 
-        // Hard recreates the <video> DOM element to flush browser MediaSource memory
-        function recreateVideoElement() {
+        function destroyVideoAndPlayer() {
+            if (player) {
+                try {
+                    player.pause();
+                    player.reset();
+                    player.destroy();
+                } catch (e) {}
+                player = null;
+            }
+
             var oldVideo = document.getElementById("videoPlayer");
             if (oldVideo) {
                 oldVideo.pause();
-                oldVideo.removeAttribute("src");
-                oldVideo.load(); // Forces MSE cleanup in modern browsers
+                oldVideo.removeAttribute("src"); // Clears MediaSource pipeline
+                oldVideo.load();
                 oldVideo.remove();
             }
 
@@ -138,15 +148,12 @@
             newVideo.autoplay = true;
             newVideo.playsInline = true;
             
-            // Insert video before overlays
             playerWrapper.insertBefore(newVideo, statusOverlay);
             videoElement = newVideo;
         }
 
         function initPlayer() {
-            if (player) {
-                try { player.destroy(); } catch(e) {}
-            }
+            destroyVideoAndPlayer();
 
             player = dashjs.MediaPlayer().create();
             
@@ -155,31 +162,64 @@
                     retryIntervals: { MPD: 1000, XHR: 1000 },
                     retryAttempts: { MPD: 0, XHR: 2 },
                     lowLatencyEnabled: true,
-                    jumpGaps: true
+                    jumpGaps: true,
+                    stallThreshold: 2
                 }
             });
 
             player.setAutoPlay(true);
             attachEvents(player);
 
-            // Append timestamp to url to bypass HTTP cache on reconnect
-            var cacheBustingUrl = baseUrl + "?t=" + new Date().getTime();
+            // Dynamic cache buster for both manifest and segment requests
+            var cacheBustingUrl = baseUrl + "?nocache=" + Date.now();
             player.initialize(videoElement, cacheBustingUrl, true);
         }
 
         function attemptReconnect() {
             if (isReconnecting) return;
             isReconnecting = true;
+            recoveryAttempts++;
 
-            showStatus("Encoder reset detected. Reconnecting...");
+            showStatus("Encoder reset detected. Recovering stream...");
 
             if (reconnectTimer) clearInterval(reconnectTimer);
 
             reconnectTimer = setInterval(function () {
-                console.log("Re-creating DOM element and reconnecting...");
-                recreateVideoElement();
+                // FAIL-SAFE: If JS-level recovery fails 3 times (approx 9s), hard refresh browser automatically
+                if (recoveryAttempts > 3) {
+                    console.log("Forcing browser reload to clear hardware buffer...");
+                    window.location.reload(true);
+                    return;
+                }
+
+                console.log("Attempting DOM & MSE reset, attempt: " + recoveryAttempts);
                 initPlayer();
             }, 3000);
+        }
+
+        // Monitors for frozen frame / loading stall after stream initialization
+        function monitorPlaybackHealth() {
+            if (stallCheckTimer) clearInterval(stallCheckTimer);
+
+            var lastTime = -1;
+            var sameTimeCount = 0;
+
+            stallCheckTimer = setInterval(function() {
+                if (!videoElement || videoElement.paused) return;
+
+                if (videoElement.currentTime === lastTime && !videoElement.ended) {
+                    sameTimeCount++;
+                    // If video time is frozen for 4 seconds straight, trigger recovery
+                    if (sameTimeCount >= 4) {
+                        console.warn("Playback frozen/stalled. Initiating hard recovery.");
+                        sameTimeCount = 0;
+                        attemptReconnect();
+                    }
+                } else {
+                    sameTimeCount = 0;
+                    lastTime = videoElement.currentTime;
+                }
+            }, 1000);
         }
 
         function attachEvents(playerInstance) {
@@ -192,15 +232,16 @@
                 if (isReconnecting) {
                     console.log("Stream recovered successfully!");
                     isReconnecting = false;
+                    recoveryAttempts = 0;
                     clearInterval(reconnectTimer);
                     hideStatus();
                 }
                 
                 startPlayback();
+                monitorPlaybackHealth();
             });
         }
 
-        // First initialization
         initPlayer();
     });
 </script>
