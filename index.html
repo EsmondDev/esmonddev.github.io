@@ -6,35 +6,61 @@
     <title>DASH Stream Player with Auto-Reconnect</title>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
-        .video-container {
-            max-width: 800px;
-            margin: 20px auto;
-            position: relative;
+        /* Dark Page Background */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
+
+        .video-container {
+            width: 100%;
+            max-width: 960px;
+            position: relative;
+            background: #000000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
         video {
             width: 100%;
             height: auto;
-            background: #000;
+            display: block;
+            background: #000000;
         }
+
+        /* Status Badge Overlay */
         #status-overlay {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-family: sans-serif;
-            font-size: 14px;
+            top: 16px;
+            left: 16px;
+            background: rgba(20, 20, 20, 0.85);
+            color: #ffcc00;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
             display: none;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
 <div class="video-container">
-    <video id="videoPlayer" controls autoplay muted></video>
-    <div id="status-overlay">Reconnecting...</div>
+    <!-- autoplay, muted, and playsinline are required for seamless browser autoplay -->
+    <video id="videoPlayer" controls autoplay muted playsinline></video>
+    <div id="status-overlay">Reconnecting to stream...</div>
 </div>
 
 <script>
@@ -45,22 +71,25 @@
 
         var player = dashjs.MediaPlayer().create();
 
-        // 1. Configure built-in retry settings for manifest/fragment fetch failures
+        // 1. Configure settings for built-in retries and immediate playback
         player.updateSettings({
             streaming: {
                 retryIntervals: {
-                    MPD: 2000,          // Retry fetching manifest every 2 seconds on failure
-                    XHR: 2000           // Retry chunk requests every 2 seconds
+                    MPD: 2000,          // Retry fetching manifest every 2s
+                    XHR: 2000           // Retry chunk requests every 2s
                 },
                 retryAttempts: {
-                    MPD: 0,             // 0 = Infinite retries for manifest
-                    XHR: 5              // Retry media chunks 5 times before failing over
+                    MPD: 0,             // Infinite retries for manifest
+                    XHR: 5
                 },
                 lowLatencyEnabled: true
             }
         });
 
-        // Initialize player
+        // Enable auto-play behavior inside dash.js options
+        player.setAutoPlay(true);
+
+        // Initialize player with autoPlay parameter = true
         player.initialize(videoElement, url, true);
 
         var isReconnecting = false;
@@ -81,17 +110,14 @@
 
             showStatus("Stream disconnected. Attempting to reconnect...");
 
-            // Clear any active reconnect loop
             if (reconnectTimer) clearInterval(reconnectTimer);
 
             reconnectTimer = setInterval(function () {
                 console.log("Attempting to reload stream...");
                 
-                // Reset player instance and re-attach stream
                 player.reset();
                 player = dashjs.MediaPlayer().create();
                 
-                // Re-apply settings
                 player.updateSettings({
                     streaming: {
                         retryIntervals: { MPD: 2000, XHR: 2000 },
@@ -99,19 +125,23 @@
                     }
                 });
 
+                player.setAutoPlay(true);
                 attachEvents(player);
                 player.initialize(videoElement, url, true);
-            }, 5000); // Try reloading every 5 seconds
+                
+                // Force play command after re-initialization
+                videoElement.play().catch(function(err) {
+                    console.log("Autoplay waiting for user interaction:", err);
+                });
+            }, 5000);
         }
 
         function attachEvents(playerInstance) {
-            // Fires on critical errors (network drop, 404, stream death)
             playerInstance.on(dashjs.MediaPlayer.events.ERROR, function (e) {
                 console.warn("DASH Error encountered:", e);
                 attemptReconnect();
             });
 
-            // Fires when the stream successfully loads and starts playing
             playerInstance.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
                 if (isReconnecting) {
                     console.log("Stream reconnected successfully!");
@@ -119,6 +149,11 @@
                     clearInterval(reconnectTimer);
                     hideStatus();
                 }
+                
+                // Trigger play when initialized
+                videoElement.play().catch(function(e) {
+                    console.log("Autoplay blocked by browser policy:", e);
+                });
             });
         }
 
