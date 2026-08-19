@@ -134,6 +134,31 @@
             newVideo.playsInline = true;
             playerWrapper.insertBefore(newVideo, statusOverlay);
             videoElement = newVideo;
+            attachVideoListeners(videoElement);
+        }
+        function attachVideoListeners(vElem) {
+            vElem.addEventListener("play", function() {
+                console.log("Play triggered - seeking to 0");
+                try {
+                    if (player) {
+                        player.seek(0);
+                    } else {
+                        vElem.currentTime = 0;
+                    }
+                } catch (e) {
+                    vElem.currentTime = 0;
+                }
+            });
+            vElem.addEventListener("playing", function() {
+                console.log("Resumed from buffer - resetting position to 0");
+                try {
+                    if (player) {
+                        player.seek(0);
+                    } else {
+                        vElem.currentTime = 0;
+                    }
+                } catch (e) {}
+            });
         }
         function initPlayer() {
             destroyVideoAndPlayer();
@@ -160,11 +185,11 @@
             if (reconnectTimer) clearInterval(reconnectTimer);
             reconnectTimer = setInterval(function () {
                 if (recoveryAttempts > 3) {
-                    console.log("Forcing browser reload to clear hardware buffer...");
+                    console.log("Forcing browser reload...");
                     window.location.reload(true);
                     return;
                 }
-                console.log("Attempting DOM & MSE reset, attempt: " + recoveryAttempts);
+                console.log("Attempting recovery, attempt: " + recoveryAttempts);
                 initPlayer();
             }, 3000);
         }
@@ -177,8 +202,9 @@
                 if (videoElement.currentTime === lastTime && !videoElement.ended) {
                     sameTimeCount++;
                     if (sameTimeCount >= 4) {
-                        console.warn("Playback frozen/stalled. Initiating hard recovery.");
+                        console.warn("Playback frozen. Seeking zero and recovering.");
                         sameTimeCount = 0;
+                        try { player.seek(0); } catch(e) {}
                         attemptReconnect();
                     }
                 } else {
@@ -192,6 +218,14 @@
                 console.warn("DASH Error encountered:", e);
                 attemptReconnect();
             });
+            playerInstance.on(dashjs.MediaPlayer.events.BUFFER_EMPTY, function() {
+                console.warn("Buffer empty event hit. Force seeking to 0 on recovery.");
+                showStatus("Buffering stream...");
+            });
+            playerInstance.on(dashjs.MediaPlayer.events.BUFFER_LOADED, function() {
+                hideStatus();
+                try { playerInstance.seek(0); } catch(e) {}
+            });
             playerInstance.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
                 if (isReconnecting) {
                     console.log("Stream recovered successfully!");
@@ -200,6 +234,7 @@
                     clearInterval(reconnectTimer);
                     hideStatus();
                 }
+                try { playerInstance.seek(0); } catch(e) {}
                 startPlayback();
                 monitorPlaybackHealth();
             });
