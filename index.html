@@ -6,7 +6,6 @@
     <title>DASH Stream Player with Auto-Reconnect</title>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
-        /* Dark Page Background */
         body {
             background-color: #000000;
             color: #ffffff;
@@ -53,14 +52,41 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 10;
         }
+
+        /* Unmute Prompt Button Overlay */
+        #unmute-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            z-index: 20;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        #unmute-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
     </style>
 </head>
 <body>
 
 <div class="video-container">
-    <!-- autoplay, muted, and playsinline are required for seamless browser autoplay -->
-    <video id="videoPlayer" controls autoplay muted playsinline></video>
+    <!-- Removed muted attribute to attempt unmuted playback -->
+    <video id="videoPlayer" controls autoplay playsinline></video>
     <div id="status-overlay">Reconnecting to stream...</div>
+    <button id="unmute-btn">🔊 Click to Unmute</button>
 </div>
 
 <script>
@@ -68,29 +94,42 @@
         var url = "https://a00.w3gradle.com/a03/live.mpd";
         var videoElement = document.querySelector("#videoPlayer");
         var statusOverlay = document.querySelector("#status-overlay");
+        var unmuteBtn = document.querySelector("#unmute-btn");
 
         var player = dashjs.MediaPlayer().create();
 
-        // 1. Configure settings for built-in retries and immediate playback
         player.updateSettings({
             streaming: {
-                retryIntervals: {
-                    MPD: 2000,          // Retry fetching manifest every 2s
-                    XHR: 2000           // Retry chunk requests every 2s
-                },
-                retryAttempts: {
-                    MPD: 0,             // Infinite retries for manifest
-                    XHR: 5
-                },
+                retryIntervals: { MPD: 2000, XHR: 2000 },
+                retryAttempts: { MPD: 0, XHR: 5 },
                 lowLatencyEnabled: true
             }
         });
 
-        // Enable auto-play behavior inside dash.js options
         player.setAutoPlay(true);
-
-        // Initialize player with autoPlay parameter = true
         player.initialize(videoElement, url, true);
+
+        // Explicitly start audio unmuted
+        videoElement.muted = false;
+
+        // Try playing unmuted; if blocked, mute and show "Click to Unmute" button
+        function startPlayback() {
+            videoElement.play().then(function() {
+                // Playback with sound succeeded
+                unmuteBtn.style.display = "none";
+            }).catch(function(error) {
+                console.warn("Unmuted autoplay blocked by browser policy. Falling back to muted autoplay.");
+                videoElement.muted = true;
+                videoElement.play();
+                unmuteBtn.style.display = "block";
+            });
+        }
+
+        // Handle Unmute Button Click
+        unmuteBtn.addEventListener("click", function() {
+            videoElement.muted = false;
+            unmuteBtn.style.display = "none";
+        });
 
         var isReconnecting = false;
         var reconnectTimer = null;
@@ -129,10 +168,7 @@
                 attachEvents(player);
                 player.initialize(videoElement, url, true);
                 
-                // Force play command after re-initialization
-                videoElement.play().catch(function(err) {
-                    console.log("Autoplay waiting for user interaction:", err);
-                });
+                startPlayback();
             }, 5000);
         }
 
@@ -150,10 +186,7 @@
                     hideStatus();
                 }
                 
-                // Trigger play when initialized
-                videoElement.play().catch(function(e) {
-                    console.log("Autoplay blocked by browser policy:", e);
-                });
+                startPlayback();
             });
         }
 
