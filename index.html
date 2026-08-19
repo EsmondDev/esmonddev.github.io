@@ -3,17 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASH Stream Player</title>
-    <!-- Include dash.js library -->
+    <title>DASH Stream Player with Auto-Reconnect</title>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
         .video-container {
             max-width: 800px;
             margin: 20px auto;
+            position: relative;
         }
         video {
             width: 100%;
             height: auto;
+            background: #000;
+        }
+        #status-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-family: sans-serif;
+            font-size: 14px;
+            display: none;
         }
     </style>
 </head>
@@ -21,16 +34,95 @@
 
 <div class="video-container">
     <video id="videoPlayer" controls autoplay muted></video>
+    <div id="status-overlay">Reconnecting...</div>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var url = "https://a00.w3gradle.com/a03/live.mpd";
         var videoElement = document.querySelector("#videoPlayer");
-        
-        // Initialize dash player
+        var statusOverlay = document.querySelector("#status-overlay");
+
         var player = dashjs.MediaPlayer().create();
+
+        // 1. Configure built-in retry settings for manifest/fragment fetch failures
+        player.updateSettings({
+            streaming: {
+                retryIntervals: {
+                    MPD: 2000,          // Retry fetching manifest every 2 seconds on failure
+                    XHR: 2000           // Retry chunk requests every 2 seconds
+                },
+                retryAttempts: {
+                    MPD: 0,             // 0 = Infinite retries for manifest
+                    XHR: 5              // Retry media chunks 5 times before failing over
+                },
+                lowLatencyEnabled: true
+            }
+        });
+
+        // Initialize player
         player.initialize(videoElement, url, true);
+
+        var isReconnecting = false;
+        var reconnectTimer = null;
+
+        function showStatus(text) {
+            statusOverlay.innerText = text;
+            statusOverlay.style.display = "block";
+        }
+
+        function hideStatus() {
+            statusOverlay.style.display = "none";
+        }
+
+        function attemptReconnect() {
+            if (isReconnecting) return;
+            isReconnecting = true;
+
+            showStatus("Stream disconnected. Attempting to reconnect...");
+
+            // Clear any active reconnect loop
+            if (reconnectTimer) clearInterval(reconnectTimer);
+
+            reconnectTimer = setInterval(function () {
+                console.log("Attempting to reload stream...");
+                
+                // Reset player instance and re-attach stream
+                player.reset();
+                player = dashjs.MediaPlayer().create();
+                
+                // Re-apply settings
+                player.updateSettings({
+                    streaming: {
+                        retryIntervals: { MPD: 2000, XHR: 2000 },
+                        retryAttempts: { MPD: 0, XHR: 5 }
+                    }
+                });
+
+                attachEvents(player);
+                player.initialize(videoElement, url, true);
+            }, 5000); // Try reloading every 5 seconds
+        }
+
+        function attachEvents(playerInstance) {
+            // Fires on critical errors (network drop, 404, stream death)
+            playerInstance.on(dashjs.MediaPlayer.events.ERROR, function (e) {
+                console.warn("DASH Error encountered:", e);
+                attemptReconnect();
+            });
+
+            // Fires when the stream successfully loads and starts playing
+            playerInstance.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
+                if (isReconnecting) {
+                    console.log("Stream reconnected successfully!");
+                    isReconnecting = false;
+                    clearInterval(reconnectTimer);
+                    hideStatus();
+                }
+            });
+        }
+
+        attachEvents(player);
     });
 </script>
 
