@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASH Stream Player with Hard Reconnect</title>
+    <title>DASH Stream Player with DOM Hard Reset</title>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
         body {
@@ -80,7 +80,7 @@
 </head>
 <body>
 
-<div class="video-container">
+<div class="video-container" id="playerWrapper">
     <video id="videoPlayer" controls autoplay playsinline></video>
     <div id="status-overlay">Reconnecting to stream...</div>
     <button id="unmute-btn">🔊 Click to Unmute</button>
@@ -89,29 +89,23 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var baseUrl = "https://a00.w3gradle.com/a03/live.mpd";
-        var videoElement = document.querySelector("#videoPlayer");
-        var statusOverlay = document.querySelector("#status-overlay");
-        var unmuteBtn = document.querySelector("#unmute-btn");
+        var playerWrapper = document.getElementById("playerWrapper");
+        var statusOverlay = document.getElementById("status-overlay");
+        var unmuteBtn = document.getElementById("unmute-btn");
+        var videoElement = document.getElementById("videoPlayer");
 
-        var player = dashjs.MediaPlayer().create();
+        var player = null;
+        var isReconnecting = false;
+        var reconnectTimer = null;
 
-        function applyPlayerSettings(p) {
-            p.updateSettings({
-                streaming: {
-                    retryIntervals: { MPD: 2000, XHR: 2000 },
-                    retryAttempts: { MPD: 0, XHR: 3 },
-                    lowLatencyEnabled: true,
-                    // Jump straight to the live edge when re-initialized
-                    liveDelay: 3,
-                    jumpGaps: true
-                }
-            });
-            p.setAutoPlay(true);
+        function showStatus(text) {
+            statusOverlay.innerText = text;
+            statusOverlay.style.display = "block";
         }
 
-        applyPlayerSettings(player);
-        player.initialize(videoElement, baseUrl, true);
-        videoElement.muted = false;
+        function hideStatus() {
+            statusOverlay.style.display = "none";
+        }
 
         function startPlayback() {
             videoElement.play().then(function() {
@@ -128,41 +122,64 @@
             unmuteBtn.style.display = "none";
         });
 
-        var isReconnecting = false;
-        var reconnectTimer = null;
+        // Hard recreates the <video> DOM element to flush browser MediaSource memory
+        function recreateVideoElement() {
+            var oldVideo = document.getElementById("videoPlayer");
+            if (oldVideo) {
+                oldVideo.pause();
+                oldVideo.removeAttribute("src");
+                oldVideo.load(); // Forces MSE cleanup in modern browsers
+                oldVideo.remove();
+            }
 
-        function showStatus(text) {
-            statusOverlay.innerText = text;
-            statusOverlay.style.display = "block";
+            var newVideo = document.createElement("video");
+            newVideo.id = "videoPlayer";
+            newVideo.controls = true;
+            newVideo.autoplay = true;
+            newVideo.playsInline = true;
+            
+            // Insert video before overlays
+            playerWrapper.insertBefore(newVideo, statusOverlay);
+            videoElement = newVideo;
         }
 
-        function hideStatus() {
-            statusOverlay.style.display = "none";
+        function initPlayer() {
+            if (player) {
+                try { player.destroy(); } catch(e) {}
+            }
+
+            player = dashjs.MediaPlayer().create();
+            
+            player.updateSettings({
+                streaming: {
+                    retryIntervals: { MPD: 1000, XHR: 1000 },
+                    retryAttempts: { MPD: 0, XHR: 2 },
+                    lowLatencyEnabled: true,
+                    jumpGaps: true
+                }
+            });
+
+            player.setAutoPlay(true);
+            attachEvents(player);
+
+            // Append timestamp to url to bypass HTTP cache on reconnect
+            var cacheBustingUrl = baseUrl + "?t=" + new Date().getTime();
+            player.initialize(videoElement, cacheBustingUrl, true);
         }
 
         function attemptReconnect() {
             if (isReconnecting) return;
             isReconnecting = true;
 
-            showStatus("Encoder restarted. Reconnecting...");
+            showStatus("Encoder reset detected. Reconnecting...");
 
             if (reconnectTimer) clearInterval(reconnectTimer);
 
             reconnectTimer = setInterval(function () {
-                console.log("Hard resetting player and purging cache...");
-                
-                // 1. Completely destroy the current player state and detach media element
-                player.destroy();
-                player = dashjs.MediaPlayer().create();
-                
-                applyPlayerSettings(player);
-                attachEvents(player);
-
-                // 2. Append timestamp cache-buster so browser doesn't load old manifest file
-                var cacheBusterUrl = baseUrl + "?t=" + new Date().getTime();
-                
-                player.initialize(videoElement, cacheBusterUrl, true);
-            }, 4000);
+                console.log("Re-creating DOM element and reconnecting...");
+                recreateVideoElement();
+                initPlayer();
+            }, 3000);
         }
 
         function attachEvents(playerInstance) {
@@ -177,19 +194,14 @@
                     isReconnecting = false;
                     clearInterval(reconnectTimer);
                     hideStatus();
-
-                    // Force seek to the latest live edge on new timeline
-                    var livePosition = playerInstance.getDuration();
-                    if (livePosition && !isNaN(livePosition)) {
-                        playerInstance.seek(livePosition);
-                    }
                 }
                 
                 startPlayback();
             });
         }
 
-        attachEvents(player);
+        // First initialization
+        initPlayer();
     });
 </script>
 
