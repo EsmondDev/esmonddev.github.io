@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASH Stream Player with Auto-Reconnect</title>
+    <title>w3Engine Player</title>
     <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <style>
         body {
@@ -18,7 +18,6 @@
             min-height: 100vh;
             box-sizing: border-box;
         }
-
         .video-container {
             width: 100%;
             max-width: 960px;
@@ -28,15 +27,12 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
-
         video {
             width: 100%;
             height: auto;
             display: block;
             background: #000000;
         }
-
-        /* Status Badge Overlay */
         #status-overlay {
             position: absolute;
             top: 16px;
@@ -52,8 +48,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             z-index: 10;
         }
-
-        /* Unmute Prompt Button Overlay */
         #unmute-btn {
             position: absolute;
             top: 50%;
@@ -73,7 +67,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             transition: transform 0.2s, background 0.2s;
         }
-
         #unmute-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translate(-50%, -50%) scale(1.05);
@@ -81,23 +74,18 @@
     </style>
 </head>
 <body>
-
 <div class="video-container">
-    <!-- Removed muted attribute to attempt unmuted playback -->
     <video id="videoPlayer" controls autoplay playsinline></video>
     <div id="status-overlay">Reconnecting to stream...</div>
     <button id="unmute-btn">🔊 Click to Unmute</button>
 </div>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var url = "https://a00.w3gradle.com/a03/live.mpd";
         var videoElement = document.querySelector("#videoPlayer");
         var statusOverlay = document.querySelector("#status-overlay");
         var unmuteBtn = document.querySelector("#unmute-btn");
-
         var player = dashjs.MediaPlayer().create();
-
         player.updateSettings({
             streaming: {
                 retryIntervals: { MPD: 2000, XHR: 2000 },
@@ -105,17 +93,11 @@
                 lowLatencyEnabled: true
             }
         });
-
         player.setAutoPlay(true);
         player.initialize(videoElement, url, true);
-
-        // Explicitly start audio unmuted
         videoElement.muted = false;
-
-        // Try playing unmuted; if blocked, mute and show "Click to Unmute" button
         function startPlayback() {
             videoElement.play().then(function() {
-                // Playback with sound succeeded
                 unmuteBtn.style.display = "none";
             }).catch(function(error) {
                 console.warn("Unmuted autoplay blocked by browser policy. Falling back to muted autoplay.");
@@ -124,60 +106,45 @@
                 unmuteBtn.style.display = "block";
             });
         }
-
-        // Handle Unmute Button Click
         unmuteBtn.addEventListener("click", function() {
             videoElement.muted = false;
             unmuteBtn.style.display = "none";
         });
-
         var isReconnecting = false;
         var reconnectTimer = null;
-
         function showStatus(text) {
             statusOverlay.innerText = text;
             statusOverlay.style.display = "block";
         }
-
         function hideStatus() {
             statusOverlay.style.display = "none";
         }
-
         function attemptReconnect() {
             if (isReconnecting) return;
             isReconnecting = true;
-
             showStatus("Stream disconnected. Attempting to reconnect...");
-
             if (reconnectTimer) clearInterval(reconnectTimer);
-
             reconnectTimer = setInterval(function () {
                 console.log("Attempting to reload stream...");
-                
                 player.reset();
                 player = dashjs.MediaPlayer().create();
-                
                 player.updateSettings({
                     streaming: {
                         retryIntervals: { MPD: 2000, XHR: 2000 },
                         retryAttempts: { MPD: 0, XHR: 5 }
                     }
                 });
-
                 player.setAutoPlay(true);
                 attachEvents(player);
                 player.initialize(videoElement, url, true);
-                
                 startPlayback();
             }, 5000);
         }
-
         function attachEvents(playerInstance) {
             playerInstance.on(dashjs.MediaPlayer.events.ERROR, function (e) {
                 console.warn("DASH Error encountered:", e);
                 attemptReconnect();
             });
-
             playerInstance.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
                 if (isReconnecting) {
                     console.log("Stream reconnected successfully!");
@@ -185,14 +152,11 @@
                     clearInterval(reconnectTimer);
                     hideStatus();
                 }
-                
                 startPlayback();
             });
         }
-
         attachEvents(player);
     });
 </script>
-
 </body>
 </html>
