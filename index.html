@@ -3,244 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>w3Engine Player</title>
-    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <title>Web DASH Player</title>
+    <!-- Include the reference implementation dash.js player library -->
+    <script src="https://cloudflare.com"></script>
     <style>
         body {
-            background-color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
             color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
         }
-        .video-container {
+        .container {
+            max-width: 800px;
             width: 100%;
-            max-width: 960px;
+        }
+        h2 {
+            color: #00adb5;
+            margin-bottom: 10px;
+        }
+        .player-wrapper {
             position: relative;
-            background: #000000;
+            width: 100%;
+            background: #000;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
         video {
             width: 100%;
-            height: auto;
             display: block;
-            background: #000000;
+            aspect-ratio: 16 / 9;
         }
-        #status-overlay {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: rgba(20, 20, 20, 0.85);
-            color: #ffcc00;
-            padding: 8px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            display: none;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 10;
+        .stream-info {
+            background-color: #1e1e1e;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00adb5;
         }
-        #unmute-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            display: none;
-            z-index: 20;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.2s, background 0.2s;
+        .info-row {
+            margin: 5px 0;
+            font-size: 14px;
+            word-break: break-all;
         }
-        #unmute-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%) scale(1.05);
+        .label {
+            font-weight: bold;
+            color: #eeeeee;
+        }
+        .value {
+            color: #00adb5;
+        }
+        #statusLog {
+            color: #ff5722;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-<div class="video-container" id="playerWrapper">
-    <video id="videoPlayer" controls autoplay playsinline></video>
-    <div id="status-overlay">Reconnecting to stream...</div>
-    <button id="unmute-btn">🔊 Click to Unmute</button>
+
+<div class="container">
+    <h2>MPEG-DASH Web Stream Player</h2>
+    
+    <!-- Video Player Element -->
+    <div class="player-wrapper">
+        <video id="videoPlayer" controls autoplay muted></video>
+    </div>
+
+    <!-- Live Stream Diagnostics -->
+    <div class="stream-info">
+        <div class="info-row">
+            <span class="label">Stream URL:</span> 
+            <span class="value" id="streamUrl"></span>
+        </div>
+        <div class="info-row">
+            <span class="label">Playback Status:</span> 
+            <span class="value" id="statusLog">Initializing...</span>
+        </div>
+        <div class="info-row">
+            <span class="label">Buffer Length:</span> 
+            <span class="value" id="bufferValue">0</span> seconds
+        </div>
+    </div>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var baseUrl = "https://a00.w3gradle.com/a03/live.mpd";
-        var playerWrapper = document.getElementById("playerWrapper");
-        var statusOverlay = document.getElementById("status-overlay");
-        var unmuteBtn = document.getElementById("unmute-btn");
-        var videoElement = document.getElementById("videoPlayer");
-        var player = null;
-        var isReconnecting = false;
-        var reconnectTimer = null;
-        var stallCheckTimer = null;
-        var recoveryAttempts = 0;
-        function showStatus(text) {
-            statusOverlay.innerText = text;
-            statusOverlay.style.display = "block";
-        }
-        function hideStatus() {
-            statusOverlay.style.display = "none";
-        }
-        function startPlayback() {
-            videoElement.play().then(function() {
-                unmuteBtn.style.display = "none";
-            }).catch(function(error) {
-                videoElement.muted = true;
-                videoElement.play();
-                unmuteBtn.style.display = "block";
-            });
-        }
-        unmuteBtn.addEventListener("click", function() {
-            videoElement.muted = false;
-            unmuteBtn.style.display = "none";
+        // Target stream configuration
+        const targetStreamUrl = "https://a00.w3gradle.com/a03/live.mpd";
+        
+        // Update UI info block
+        document.getElementById("streamUrl").textContent = targetStreamUrl;
+
+        const videoElement = document.querySelector("#videoPlayer");
+        const statusLog = document.getElementById("statusLog");
+        const bufferValue = document.getElementById("bufferValue");
+
+        // Instantiate dash.js player setup
+        const player = dashjs.MediaPlayer().create();
+        
+        // Initialize player context
+        player.initialize(videoElement, targetStreamUrl, true);
+
+        // Event: Stream Engine Ready
+        player.on(dashjs.MediaPlayer.events.CAN_PLAY, function() {
+            statusLog.textContent = "Streaming Live";
+            statusLog.style.color = "#4caf50";
         });
-        function destroyVideoAndPlayer() {
-            if (player) {
-                try {
-                    player.pause();
-                    player.reset();
-                    player.destroy();
-                } catch (e) {}
-                player = null;
+
+        // Event: Error Catching
+        player.on(dashjs.MediaPlayer.events.ERROR, function(e) {
+            statusLog.textContent = "Error: " + (e.error ? e.error.message : "Failed to load manifest");
+            statusLog.style.color = "#f44336";
+            console.error("DASH Player Error:", e);
+        });
+
+        // Live Diagnostic Metric Loop: Track Live Buffer Depth
+        setInterval(() => {
+            if (player.isReady()) {
+                const currentBuffer = player.getBufferLength('video');
+                bufferValue.textContent = currentBuffer.toFixed(2);
             }
-            var oldVideo = document.getElementById("videoPlayer");
-            if (oldVideo) {
-                oldVideo.pause();
-                oldVideo.removeAttribute("src");
-                oldVideo.load();
-                oldVideo.remove();
-            }
-            var newVideo = document.createElement("video");
-            newVideo.id = "videoPlayer";
-            newVideo.controls = true;
-            newVideo.autoplay = true;
-            newVideo.playsInline = true;
-            playerWrapper.insertBefore(newVideo, statusOverlay);
-            videoElement = newVideo;
-            attachVideoListeners(videoElement);
-        }
-        function attachVideoListeners(vElem) {
-            vElem.addEventListener("play", function() {
-                console.log("Play triggered - seeking to 0");
-                try {
-                    if (player) {
-                        player.seek(0);
-                    } else {
-                        vElem.currentTime = 0;
-                    }
-                } catch (e) {
-                    vElem.currentTime = 0;
-                }
-            });
-            vElem.addEventListener("playing", function() {
-                console.log("Resumed from buffer - resetting position to 0");
-                try {
-                    if (player) {
-                        player.seek(0);
-                    } else {
-                        vElem.currentTime = 0;
-                    }
-                } catch (e) {}
-            });
-        }
-        function initPlayer() {
-            destroyVideoAndPlayer();
-            player = dashjs.MediaPlayer().create();
-            player.updateSettings({
-                streaming: {
-                    retryIntervals: { MPD: 1000, XHR: 1000 },
-                    retryAttempts: { MPD: 0, XHR: 2 },
-                    lowLatencyEnabled: true,
-                    jumpGaps: true,
-                    stallThreshold: 2
-                }
-            });
-            player.setAutoPlay(true);
-            attachEvents(player);
-            var cacheBustingUrl = baseUrl + "?nocache=" + Date.now();
-            player.initialize(videoElement, cacheBustingUrl, true);
-        }
-        function attemptReconnect() {
-            if (isReconnecting) return;
-            isReconnecting = true;
-            recoveryAttempts++;
-            showStatus("Encoder reset detected. Recovering stream...");
-            if (reconnectTimer) clearInterval(reconnectTimer);
-            reconnectTimer = setInterval(function () {
-                if (recoveryAttempts > 3) {
-                    console.log("Forcing browser reload...");
-                    window.location.reload(true);
-                    return;
-                }
-                console.log("Attempting recovery, attempt: " + recoveryAttempts);
-                initPlayer();
-            }, 3000);
-        }
-        function monitorPlaybackHealth() {
-            if (stallCheckTimer) clearInterval(stallCheckTimer);
-            var lastTime = -1;
-            var sameTimeCount = 0;
-            stallCheckTimer = setInterval(function() {
-                if (!videoElement || videoElement.paused) return;
-                if (videoElement.currentTime === lastTime && !videoElement.ended) {
-                    sameTimeCount++;
-                    if (sameTimeCount >= 4) {
-                        console.warn("Playback frozen. Seeking zero and recovering.");
-                        sameTimeCount = 0;
-                        try { player.seek(0); } catch(e) {}
-                        attemptReconnect();
-                    }
-                } else {
-                    sameTimeCount = 0;
-                    lastTime = videoElement.currentTime;
-                }
-            }, 1000);
-        }
-        function attachEvents(playerInstance) {
-            playerInstance.on(dashjs.MediaPlayer.events.ERROR, function (e) {
-                console.warn("DASH Error encountered:", e);
-                attemptReconnect();
-            });
-            playerInstance.on(dashjs.MediaPlayer.events.BUFFER_EMPTY, function() {
-                console.warn("Buffer empty event hit. Force seeking to 0 on recovery.");
-                showStatus("Buffering stream...");
-            });
-            playerInstance.on(dashjs.MediaPlayer.events.BUFFER_LOADED, function() {
-                hideStatus();
-                try { playerInstance.seek(0); } catch(e) {}
-            });
-            playerInstance.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function () {
-                if (isReconnecting) {
-                    console.log("Stream recovered successfully!");
-                    isReconnecting = false;
-                    recoveryAttempts = 0;
-                    clearInterval(reconnectTimer);
-                    hideStatus();
-                }
-                try { playerInstance.seek(0); } catch(e) {}
-                startPlayback();
-                monitorPlaybackHealth();
-            });
-        }
-        initPlayer();
+        }, 1000);
     });
 </script>
+
 </body>
 </html>
