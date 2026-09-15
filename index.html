@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web DASH Live Stream Dashboard</title>
-    <!-- Fixed: Import official dash.js library from CDN -->
+    <!-- Include official dash.js library from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/4.7.4/dash.all.min.js"></script>
     <style>
         body {
@@ -43,6 +43,45 @@
             width: 100%;
             height: 100%;
             display: block;
+        }
+        /* Round Play Button Styling */
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 173, 181, 0.85);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
+            z-index: 10;
+        }
+        .play-btn:hover {
+            background-color: rgba(0, 173, 181, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        /* Triangle Play Icon */
+        .play-btn::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            margin-left: 5px; /* Slight offset to visually center the play icon */
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 20px solid #ffffff;
+        }
+        /* Hidden state for when video is actively playing */
+        .play-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
         .dashboard {
             margin-top: 20px;
@@ -90,11 +129,13 @@
     </header>
 
     <div class="stream-url-box">
-        <strong>Source Stream:</strong> <span>https://a00.w3gradle.com/a04/live.mpd</span>
+        <strong>Source Stream:</strong> <span>https://a00.w3gradle.com/a03/live.mpd</span>
     </div>
 
     <div class="video-wrapper">
         <video id="videoPlayer" controls></video>
+        <!-- Overlay Play Button -->
+        <button id="customPlayBtn" class="play-btn" aria-label="Play"></button>
     </div>
 
     <div class="dashboard">
@@ -119,13 +160,13 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const streamUrl = "https://a00.w3gradle.com/a04/live.mpd";
+        const streamUrl = "https://a00.w3gradle.com/a03/live.mpd";
         const videoElement = document.querySelector("#videoPlayer");
+        const playBtn = document.querySelector("#customPlayBtn");
         
         // Initialize the dash.js MediaPlayer instance
         const player = dashjs.MediaPlayer().create();
         
-        // Configuration optimizations for live streaming stability
         player.updateSettings({
             streaming: {
                 lowLatencyEnabled: true,
@@ -134,19 +175,31 @@
             }
         });
 
-        // Bind video element view and attach the manifest stream source
-        player.initialize(videoElement, streamUrl, true);
+        // Set autoplay off so the initial overlay play button is visible
+        player.initialize(videoElement, streamUrl, false);
 
-        // Telemetry loop querying metrics dynamically every half second
+        // Click handler for custom play button
+        playBtn.addEventListener("click", function () {
+            videoElement.play();
+        });
+
+        // Toggle custom play button visibility based on media state
+        videoElement.addEventListener("play", function () {
+            playBtn.classList.add("hidden");
+        });
+
+        videoElement.addEventListener("pause", function () {
+            playBtn.classList.remove("hidden");
+        });
+
+        // Telemetry loop
         setInterval(function () {
             if (player.isReady()) {
-                // 1. Get current buffer length safely
                 const bufferInfo = player.getBufferLength('video');
                 if (bufferInfo !== null && bufferInfo !== undefined) {
                     document.getElementById('bufferLevel').innerText = bufferInfo.toFixed(2) + " s";
                 }
 
-                // 2. Get active stream info metrics with optional chaining / null checks
                 const activeStream = player.getActiveStream();
                 if (activeStream) {
                     const videoTrack = activeStream.getBitrateListFor('video');
@@ -160,7 +213,6 @@
                     }
                 }
 
-                // 3. Collect dropped playback frame data metrics safely
                 const videoPlaybackQuality = videoElement.getVideoPlaybackQuality ? 
                     videoElement.getVideoPlaybackQuality() : null;
                 
