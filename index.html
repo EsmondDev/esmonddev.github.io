@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web DASH Player</title>
-    <!-- Include the reference implementation dash.js player library -->
+    <title>Web DASH Live Stream Dashboard</title>
+    <!-- Include the official dash.js library from CDN -->
     <script src="https://cloudflare.com"></script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #121212;
-            color: #ffffff;
+            color: #e0e0e0;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -18,116 +18,155 @@
             align-items: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
         }
-        h2 {
+        header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #2d2d2d;
+            padding-bottom: 10px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
             color: #00adb5;
-            margin-bottom: 10px;
         }
-        .player-wrapper {
+        .video-wrapper {
             position: relative;
-            width: 100%;
             background: #000;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            aspect-ratio: 16 / 9;
         }
         video {
             width: 100%;
+            height: 100%;
             display: block;
-            aspect-ratio: 16 / 9;
         }
-        .stream-info {
+        .dashboard {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .metric-card {
             background-color: #1e1e1e;
             padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
+            border-radius: 6px;
             border-left: 4px solid #00adb5;
         }
-        .info-row {
-            margin: 5px 0;
-            font-size: 14px;
+        .metric-label {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .metric-value {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        .stream-url-box {
+            background-color: #1e1e1e;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             word-break: break-all;
+            color: #888;
         }
-        .label {
-            font-weight: bold;
-            color: #eeeeee;
-        }
-        .value {
+        .stream-url-box span {
             color: #00adb5;
-        }
-        #statusLog {
-            color: #ff5722;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>MPEG-DASH Web Stream Player</h2>
-    
-    <!-- Video Player Element -->
-    <div class="player-wrapper">
-        <video id="videoPlayer" controls autoplay muted></video>
+    <header>
+        <h1>DASH Stream Dashboard</h1>
+    </header>
+
+    <div class="stream-url-box">
+        <strong>Source Stream:</strong> <span>https://a00.w3gradle.com/a03/live.mpd</span>
     </div>
 
-    <!-- Live Stream Diagnostics -->
-    <div class="stream-info">
-        <div class="info-row">
-            <span class="label">Stream URL:</span> 
-            <span class="value" id="streamUrl"></span>
+    <!-- Video element requires controls attribute for native UI interaction -->
+    <div class="video-wrapper">
+        <video id="videoPlayer" controls></video>
+    </div>
+
+    <!-- Telemetry Dashboard Metrics Panel -->
+    <div class="dashboard">
+        <div class="metric-card">
+            <div class="metric-label">Buffer Level</div>
+            <div id="bufferLevel" class="metric-value">0.00 s</div>
         </div>
-        <div class="info-row">
-            <span class="label">Playback Status:</span> 
-            <span class="value" id="statusLog">Initializing...</span>
+        <div class="metric-card">
+            <div class="metric-label">Current Bitrate</div>
+            <div id="currentBitrate" class="metric-value">0 Kbps</div>
         </div>
-        <div class="info-row">
-            <span class="label">Buffer Length:</span> 
-            <span class="value" id="bufferValue">0</span> seconds
+        <div class="metric-card">
+            <div class="metric-label">Resolution</div>
+            <div id="videoResolution" class="metric-value">0 x 0</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Dropped Frames</div>
+            <div id="droppedFrames" class="metric-value">0</div>
         </div>
     </div>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Target stream configuration
-        const targetStreamUrl = "https://a00.w3gradle.com/a03/live.mpd";
-        
-        // Update UI info block
-        document.getElementById("streamUrl").textContent = targetStreamUrl;
-
+        const streamUrl = "https://a00.w3gradle.com/a03/live.mpd";
         const videoElement = document.querySelector("#videoPlayer");
-        const statusLog = document.getElementById("statusLog");
-        const bufferValue = document.getElementById("bufferValue");
-
-        // Instantiate dash.js player setup
+        
+        // Initialize the dash.js MediaPlayer instance
         const player = dashjs.MediaPlayer().create();
         
-        // Initialize player context
-        player.initialize(videoElement, targetStreamUrl, true);
-
-        // Event: Stream Engine Ready
-        player.on(dashjs.MediaPlayer.events.CAN_PLAY, function() {
-            statusLog.textContent = "Streaming Live";
-            statusLog.style.color = "#4caf50";
-        });
-
-        // Event: Error Catching
-        player.on(dashjs.MediaPlayer.events.ERROR, function(e) {
-            statusLog.textContent = "Error: " + (e.error ? e.error.message : "Failed to load manifest");
-            statusLog.style.color = "#f44336";
-            console.error("DASH Player Error:", e);
-        });
-
-        // Live Diagnostic Metric Loop: Track Live Buffer Depth
-        setInterval(() => {
-            if (player.isReady()) {
-                const currentBuffer = player.getBufferLength('video');
-                bufferValue.textContent = currentBuffer.toFixed(2);
+        // Configuration optimizations for live streaming stability
+        player.updateSettings({
+            streaming: {
+                lowLatencyEnabled: true,
+                liveDelay: 3,
+                fastSwitchEnabled: true
             }
-        }, 1000);
+        });
+
+        // Bind video element view and attach the manifest stream source
+        player.initialize(videoElement, streamUrl, true);
+
+        // Telemetry loop querying metrics dynamically every half second
+        setInterval(function () {
+            if (player.isReady()) {
+                // 1. Get current buffer length in seconds
+                const bufferInfo = player.getBufferLength('video');
+                document.getElementById('bufferLevel').innerText = bufferInfo.toFixed(2) + " s";
+
+                // 2. Get active stream info metrics
+                const videoTrack = player.getActiveStream().getBitrateListFor('video');
+                const currentIndex = player.getQualityFor('video');
+                
+                if(videoTrack && videoTrack[currentIndex]) {
+                    const currentTrack = videoTrack[currentIndex];
+                    // Convert bits to kilobits per second
+                    const bitrateKbps = Math.round(currentTrack.bitrate / 1000);
+                    document.getElementById('currentBitrate').innerText = bitrateKbps + " Kbps";
+                    document.getElementById('videoResolution').innerText = currentTrack.width + " x " + currentTrack.height;
+                }
+
+                // 3. Collect dropped playback frame data metrics
+                const videoPlaybackQuality = videoElement.getVideoPlaybackQuality ? 
+                    videoElement.getVideoPlaybackQuality() : null;
+                
+                if (videoPlaybackQuality) {
+                    document.getElementById('droppedFrames').innerText = videoPlaybackQuality.droppedVideoFrames;
+                }
+            }
+        }, 500);
     });
 </script>
 
