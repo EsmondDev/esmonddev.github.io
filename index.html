@@ -23,20 +23,20 @@
         }
         header {
             margin-bottom: 20px;
-            border-bottom: 1px solid #2d2d2d;
+            border-bottom: 1px solid #331010;
             padding-bottom: 10px;
         }
         h1 {
             margin: 0;
             font-size: 1.5rem;
-            color: #00adb5;
+            color: #ff4500; /* Red-Orange Header */
         }
         .video-wrapper {
             position: relative;
             background: #000;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.2);
             aspect-ratio: 16 / 9;
         }
         video {
@@ -44,7 +44,7 @@
             height: 100%;
             display: block;
         }
-        /* Round Play Button Styling */
+        /* Round Play Button - Red background, Yellow icon on hover */
         .play-btn {
             position: absolute;
             top: 50%;
@@ -52,19 +52,19 @@
             transform: translate(-50%, -50%);
             width: 70px;
             height: 70px;
-            background-color: rgba(0, 173, 181, 0.85);
-            border: none;
+            background-color: rgba(220, 20, 60, 0.9); /* Crimson Red */
+            border: 2px solid #ff8c00; /* Dark Orange Border */
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 20px rgba(220, 20, 60, 0.5);
             transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
             z-index: 10;
         }
         .play-btn:hover {
-            background-color: rgba(0, 173, 181, 1);
+            background-color: #ff4500; /* Bright Orange-Red */
             transform: translate(-50%, -50%) scale(1.1);
         }
         /* Triangle Play Icon */
@@ -73,12 +73,11 @@
             display: block;
             width: 0;
             height: 0;
-            margin-left: 5px; /* Slight offset to visually center the play icon */
+            margin-left: 5px;
             border-top: 12px solid transparent;
             border-bottom: 12px solid transparent;
-            border-left: 20px solid #ffffff;
+            border-left: 20px solid #ffd700; /* Gold Yellow Icon */
         }
-        /* Hidden state for when video is actively playing */
         .play-btn.hidden {
             opacity: 0;
             pointer-events: none;
@@ -93,18 +92,18 @@
             background-color: #1e1e1e;
             padding: 15px;
             border-radius: 6px;
-            border-left: 4px solid #00adb5;
+            border-left: 4px solid #ff8c00; /* Dark Orange Border Accent */
         }
         .metric-label {
             font-size: 0.85rem;
-            color: #888;
+            color: #ffae42; /* Soft Warm Yellow */
             text-transform: uppercase;
             margin-bottom: 5px;
         }
         .metric-value {
             font-size: 1.25rem;
             font-weight: bold;
-            color: #fff;
+            color: #ffd700; /* Gold Yellow Value */
         }
         .stream-url-box {
             background-color: #1e1e1e;
@@ -117,7 +116,7 @@
             color: #888;
         }
         .stream-url-box span {
-            color: #00adb5;
+            color: #ff4500; /* Orange-Red URL Accent */
         }
     </style>
 </head>
@@ -134,7 +133,6 @@
 
     <div class="video-wrapper">
         <video id="videoPlayer" controls></video>
-        <!-- Overlay Play Button -->
         <button id="customPlayBtn" class="play-btn" aria-label="Play"></button>
     </div>
 
@@ -164,7 +162,6 @@
         const videoElement = document.querySelector("#videoPlayer");
         const playBtn = document.querySelector("#customPlayBtn");
         
-        // Initialize the dash.js MediaPlayer instance
         const player = dashjs.MediaPlayer().create();
         
         player.updateSettings({
@@ -175,15 +172,12 @@
             }
         });
 
-        // Set autoplay off so the initial overlay play button is visible
         player.initialize(videoElement, streamUrl, false);
 
-        // Click handler for custom play button
         playBtn.addEventListener("click", function () {
             videoElement.play();
         });
 
-        // Toggle custom play button visibility based on media state
         videoElement.addEventListener("play", function () {
             playBtn.classList.add("hidden");
         });
@@ -192,7 +186,6 @@
             playBtn.classList.remove("hidden");
         });
 
-        // Telemetry loop
         setInterval(function () {
             if (player.isReady()) {
                 const bufferInfo = player.getBufferLength('video');
