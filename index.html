@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web DASH Live Stream Dashboard</title>
-    <!-- Include the official dash.js library from CDN -->
-    <script src="https://cloudflare.com"></script>
+    <!-- Fixed: Import official dash.js library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/4.7.4/dash.all.min.js"></script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -93,12 +93,10 @@
         <strong>Source Stream:</strong> <span>https://a00.w3gradle.com/a03/live.mpd</span>
     </div>
 
-    <!-- Video element requires controls attribute for native UI interaction -->
     <div class="video-wrapper">
         <video id="videoPlayer" controls></video>
     </div>
 
-    <!-- Telemetry Dashboard Metrics Panel -->
     <div class="dashboard">
         <div class="metric-card">
             <div class="metric-label">Buffer Level</div>
@@ -142,23 +140,27 @@
         // Telemetry loop querying metrics dynamically every half second
         setInterval(function () {
             if (player.isReady()) {
-                // 1. Get current buffer length in seconds
+                // 1. Get current buffer length safely
                 const bufferInfo = player.getBufferLength('video');
-                document.getElementById('bufferLevel').innerText = bufferInfo.toFixed(2) + " s";
-
-                // 2. Get active stream info metrics
-                const videoTrack = player.getActiveStream().getBitrateListFor('video');
-                const currentIndex = player.getQualityFor('video');
-                
-                if(videoTrack && videoTrack[currentIndex]) {
-                    const currentTrack = videoTrack[currentIndex];
-                    // Convert bits to kilobits per second
-                    const bitrateKbps = Math.round(currentTrack.bitrate / 1000);
-                    document.getElementById('currentBitrate').innerText = bitrateKbps + " Kbps";
-                    document.getElementById('videoResolution').innerText = currentTrack.width + " x " + currentTrack.height;
+                if (bufferInfo !== null && bufferInfo !== undefined) {
+                    document.getElementById('bufferLevel').innerText = bufferInfo.toFixed(2) + " s";
                 }
 
-                // 3. Collect dropped playback frame data metrics
+                // 2. Get active stream info metrics with optional chaining / null checks
+                const activeStream = player.getActiveStream();
+                if (activeStream) {
+                    const videoTrack = activeStream.getBitrateListFor('video');
+                    const currentIndex = player.getQualityFor('video');
+                    
+                    if (videoTrack && videoTrack[currentIndex]) {
+                        const currentTrack = videoTrack[currentIndex];
+                        const bitrateKbps = Math.round(currentTrack.bitrate / 1000);
+                        document.getElementById('currentBitrate').innerText = bitrateKbps + " Kbps";
+                        document.getElementById('videoResolution').innerText = `${currentTrack.width} x ${currentTrack.height}`;
+                    }
+                }
+
+                // 3. Collect dropped playback frame data metrics safely
                 const videoPlaybackQuality = videoElement.getVideoPlaybackQuality ? 
                     videoElement.getVideoPlaybackQuality() : null;
                 
